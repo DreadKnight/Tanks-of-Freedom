@@ -33,7 +33,7 @@ var paint_count = 0
 var autosave_after = 10
 var painting_motion = false
 var movement_mode = true
-var big_brush = true
+var big_brush = false
 var tileset
 
 var settings = {
