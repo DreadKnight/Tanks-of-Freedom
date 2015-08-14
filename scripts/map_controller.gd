@@ -89,7 +89,7 @@ var map_units = [
 var is_dead = false
 var do_cinematic_pan = false
 var should_do_awesome_explosions = false
-var awesome_explosions_interval = 10
+var awesome_explosions_interval = 2
 var awesome_explosions_interval_counter = 0
 
 func _input(event):
@@ -151,7 +151,8 @@ func _process(delta):
 	if self.do_cinematic_pan:
 		self.do_awesome_cinematic_pan()
 		if self.awesome_explosions_interval_counter == self.awesome_explosions_interval:
-			self.do_awesome_random_explosions()
+			for just_do_it in range(12):
+				self.do_awesome_random_explosions()
 			self.awesome_explosions_interval_counter = 0
 		else:
 			self.awesome_explosions_interval_counter += 1
