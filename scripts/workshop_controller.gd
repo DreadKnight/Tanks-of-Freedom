@@ -40,8 +40,8 @@ var settings = {
 	fill_selected = [0,0],
 }
 
-const MAP_MAX_X = 64
-const MAP_MAX_Y = 64
+const MAP_MAX_X = 96
+const MAP_MAX_Y = 96
 
 func init_gui():
 	map = get_node("blueprint/scale/map")

@@ -45,8 +45,8 @@ const GEN_FLOWERS = 3
 const GEN_STONES = 6
 
 # this shoudl be in main settings (see abstract_map)
-const MAP_MAX_X = 40
-const MAP_MAX_Y = 40
+const MAP_MAX_X = 96
+const MAP_MAX_Y = 96
 
 var map_file = File.new()
 var campaign
