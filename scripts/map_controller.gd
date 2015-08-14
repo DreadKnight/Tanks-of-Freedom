@@ -43,6 +43,7 @@ const PAN_THRESHOLD = 20
 const GEN_GRASS = 6
 const GEN_FLOWERS = 3
 const GEN_STONES = 6
+const PAN_SPEED = 2
 
 # this shoudl be in main settings (see abstract_map)
 const MAP_MAX_X = 96
@@ -142,7 +143,7 @@ func _process(delta):
 		panning = false
 
 	if self.do_cinematic_pan:
-		self.set_map_pos_global(Vector2(self.sX - 1, self.sY))
+		self.set_map_pos_global(Vector2(self.sX - PAN_SPEED, self.sY))
 
 func move_to(target):
 	if not mouse_dragging:

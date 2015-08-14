@@ -33,6 +33,7 @@ var paint_count = 0
 var autosave_after = 10
 var painting_motion = false
 var movement_mode = true
+var big_brush = true
 var tileset
 
 var settings = {
@@ -135,9 +136,18 @@ func paint(position, tool_type = null, brush_type = null, undo_action = false):
 			else:
 				if terrain.get_cell(position.x,position.y) != brush_type:
 					if not undo_action:
-						add_action({position=Vector2(position.x,position.y),tool_type="terrain"})
-					terrain.set_cell(position.x,position.y,brush_type)
-
+						if big_brush:
+							for bx in range(position.x-1, position.x+2):
+								for by in range(position.y-1, position.y+2):
+									add_action({position=Vector2(bx,by),tool_type="terrain"})
+						else:
+							add_action({position=Vector2(position.x,position.y),tool_type="terrain"})
+					if big_brush:
+						for bx in range(position.x-1, position.x+2):
+							for by in range(position.y-1, position.y+2):
+								terrain.set_cell(bx,by,brush_type)
+					else:
+						terrain.set_cell(position.x,position.y,brush_type)
 		if tool_type == "units":
 			if units.get_cell(position.x,position.y) != brush_type:
 				if terrain.get_cell(position.x, position.y) in [self.tileset.TERRAIN_PLAIN, self.tileset.TERRAIN_DIRT, self.tileset.TERRAIN_ROAD, self.tileset.TERRAIN_DIRT_ROAD, self.tileset.TERRAIN_BRIDGE, self.tileset.TERRAIN_SPAWN]:
