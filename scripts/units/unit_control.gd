@@ -168,10 +168,7 @@ func die_after_explosion(ysort):
 	self.show_big_explosion()
 
 func update_shield():
-	if ap >= attack_ap:
-		icon_shield.show()
-	else:
-		icon_shield.hide()
+	icon_shield.hide()
 
 func score_kill():
 	kills = kills + 1

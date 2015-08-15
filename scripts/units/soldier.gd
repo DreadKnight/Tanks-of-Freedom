@@ -13,6 +13,8 @@ func _init():
 	ap = 4
 	attacks_number = 1
 	visibility = 3
+	randomize()
+	self.set_flip_h(randi()%2)
 
 func can_capture_building(building):
 	if building.player == player:

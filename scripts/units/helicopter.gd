@@ -13,6 +13,7 @@ func _init():
 	ap = 8
 	attacks_number = 1
 	visibility = 4
+	self.set_flip_h(randi()%2)
 
 func can_capture_building(building):
 	return false
